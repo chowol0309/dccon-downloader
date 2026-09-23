@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "디시콘 다운로더",
+  "version": "1.0.0",
+  "description": "디시콘 정보 창에 다운 버튼을 추가해서 다운로드/디시콘/<디시콘 이름>/ 폴더에 저장합니다.",
+  "permissions": ["downloads", "declarativeNetRequest"],
+  "host_permissions": ["*://*.dcinside.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["*://*.dcinside.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
